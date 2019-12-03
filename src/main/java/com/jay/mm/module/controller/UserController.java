@@ -1,18 +1,21 @@
 package com.jay.mm.module.controller;
 
 import com.jay.mm.common.CommonResult;
+import com.jay.mm.common.JWTConstant;
+import com.jay.mm.common.JWTUtil;
 import com.jay.mm.module.entity.doo.User;
 import com.jay.mm.module.entity.vo.UserLoginVO;
 import com.jay.mm.module.service.base.UserService;
+import io.jsonwebtoken.Claims;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
 
 /**
  * @author zhouxu
@@ -26,8 +29,12 @@ public class UserController {
 
     private final UserService userService;
 
-    public UserController(UserService userService) {
+    private final JWTUtil jwtUtil;
+
+    @Autowired(required = false)
+    public UserController(UserService userService, JWTUtil jwtUtil) {
         this.userService = userService;
+        this.jwtUtil = jwtUtil;
     }
 
     @PostMapping("/login")
@@ -55,13 +62,11 @@ public class UserController {
         }
 
         //生成token
+        String jwt = jwtUtil.createJWT(JWTConstant.JWT_LOGIN, user, JWTConstant.LOGIN_EXPIRED_TIME);
+        System.out.println(jwt);
 
-        //修改登录时间、登录次数、登录状态
-//        User update = new User();
-//        update.setId(user.getId());
-//        update.setLastLoginTime(new Date());
-//        update.set
-//        userService.updateById();
+        Claims claims = jwtUtil.parseJWT(jwt);
+        System.out.println(claims);
 
         return CommonResult.success();
     }

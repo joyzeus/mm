@@ -11,18 +11,18 @@ import java.io.Serializable;
  * @date 2019/11/22 14:16
  */
 @Data
-public class CommonResult<T> implements Serializable {
+public class CommonResult implements Serializable {
 
     private int code;
     private String message;
-    private T data;
+    private Object data;
 
     public static CommonResult success() {
-        return success(null);
+        return success("");
     }
 
     public static <T> CommonResult success(T t) {
-        CommonResult<Object> result = new CommonResult<>();
+        CommonResult result = new CommonResult();
         result.setCode(CommonCode.SUCCESS);
         result.setMessage("请求成功");
         result.setData(t);
@@ -38,7 +38,7 @@ public class CommonResult<T> implements Serializable {
     }
 
     public static <T> CommonResult error(String message, T t) {
-        CommonResult<Object> result = new CommonResult<>();
+        CommonResult result = new CommonResult();
         result.setCode(CommonCode.INTERNAL_ERROR);
         result.setMessage(message);
         result.setData(t);
@@ -46,7 +46,7 @@ public class CommonResult<T> implements Serializable {
     }
 
     public static <T> CommonResult customResult(int code, String message, T t) {
-        CommonResult<Object> result = new CommonResult<>();
+        CommonResult result = new CommonResult();
         result.setCode(code);
         result.setMessage(message);
         result.setData(t);
