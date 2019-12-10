@@ -64,7 +64,6 @@ public class JWTUtil {
         return builder.compact();
     }
 
-
     /**
      * 解密jwt
      *
