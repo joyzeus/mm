@@ -7,14 +7,16 @@
     <result column="mobile" jdbcType="VARCHAR" property="mobile" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="head_image" jdbcType="VARCHAR" property="headImage" />
     <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="login_count" jdbcType="INTEGER" property="loginCount" />
     <result column="locked" jdbcType="BIT" property="locked" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, account, mobile, email, password, last_login_time, create_time, login_count, 
-    locked
+    id, account, mobile, email, password, nickname, head_image,
+     last_login_time, create_time, login_count, locked
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -45,6 +47,12 @@
       <if test="password != null">
         password,
       </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="headImage != null">
+        head_image,
+      </if>
       <if test="lastLoginTime != null">
         last_login_time,
       </if>
@@ -70,6 +78,12 @@
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="headImage != null">
+        #{headImage,jdbcType=VARCHAR},
       </if>
       <if test="lastLoginTime != null">
         #{lastLoginTime,jdbcType=TIMESTAMP},
@@ -100,6 +114,12 @@
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
       </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="headImage != null">
+        head_image = #{headImage,jdbcType=VARCHAR},
+      </if>
       <if test="lastLoginTime != null">
         last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
       </if>
@@ -115,7 +135,6 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-
   <select id="selectByMobile" resultType="com.jay.mm.module.entity.doo.User">
     select
       <include refid="Base_Column_List"></include>

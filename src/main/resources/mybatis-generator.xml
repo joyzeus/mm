@@ -31,13 +31,7 @@
         </javaClientGenerator>
 
         <!--生成对应表及类名-->
-        <table tableName="pur_whse" domainObjectName="StockManager" enableCountByExample="false"
-               enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="useActualColumnNames" value="false"/>
-            <generatedKey column="TableId" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="users" domainObjectName="User" enableCountByExample="false"
+        <table tableName="error_log" domainObjectName="ErrorLog" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="false"/>

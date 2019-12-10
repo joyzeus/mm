@@ -4,16 +4,13 @@ import com.jay.mm.common.CommonResult;
 import com.jay.mm.common.JWTConstant;
 import com.jay.mm.common.JWTUtil;
 import com.jay.mm.module.entity.doo.User;
+import com.jay.mm.module.entity.model.LoginModel;
 import com.jay.mm.module.entity.vo.UserLoginVO;
 import com.jay.mm.module.service.base.UserService;
-import io.jsonwebtoken.Claims;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -63,11 +60,18 @@ public class UserController {
 
         //生成token
         String jwt = jwtUtil.createJWT(JWTConstant.JWT_LOGIN, user, JWTConstant.LOGIN_EXPIRED_TIME);
-        System.out.println(jwt);
 
-        Claims claims = jwtUtil.parseJWT(jwt);
-        System.out.println(claims);
+        LoginModel loginModel = new LoginModel();
+        loginModel.setToken(jwt);
+        loginModel.setMobile(user.getMobile());
+        loginModel.setNickName(user.getAccount());
+        loginModel.setHeadImage(user.getHeadImage());
 
-        return CommonResult.success();
+        return CommonResult.success(loginModel);
+    }
+
+    @GetMapping("/test")
+    public CommonResult login() {
+        return CommonResult.error(1/0);
     }
 }
