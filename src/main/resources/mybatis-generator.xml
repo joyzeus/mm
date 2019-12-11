@@ -31,7 +31,7 @@
         </javaClientGenerator>
 
         <!--生成对应表及类名-->
-        <table tableName="error_log" domainObjectName="ErrorLog" enableCountByExample="false"
+        <table tableName="user_permission" domainObjectName="UserPermission" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="false"/>

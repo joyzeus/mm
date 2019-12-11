@@ -17,6 +17,8 @@ public class UserServiceImpl implements UserService {
 
     private final UserMapper userMapper;
 
+    private final RoleMapper roleMapper;
+
     @Autowired(required = false)
     public UserServiceImpl(UserMapper userMapper) {
         this.userMapper = userMapper;

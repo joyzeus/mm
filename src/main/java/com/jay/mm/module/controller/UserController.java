@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  * @date 2019/11/22 14:14
  */
 @RestController
-@RequestMapping("/sys/user")
+@RequestMapping("/sys/admin/user")
 public class UserController {
 
     private final UserService userService;
