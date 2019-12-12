@@ -2,14 +2,10 @@ package com.jay.mm.module.dao;
 
 import com.jay.mm.module.entity.doo.Permission;
 
-/**
- * @author zhouxu
- * @date 2019/12/12
- */
+import java.util.List;
+
 public interface PermissionMapper {
     int deleteByPrimaryKey(Integer id);
-
-    int insert(Permission record);
 
     int insertSelective(Permission record);
 
@@ -17,5 +13,5 @@ public interface PermissionMapper {
 
     int updateByPrimaryKeySelective(Permission record);
 
-    int updateByPrimaryKey(Permission record);
+    List<Permission> getList(Permission permission);
 }

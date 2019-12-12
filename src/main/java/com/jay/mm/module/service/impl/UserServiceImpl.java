@@ -1,5 +1,6 @@
 package com.jay.mm.module.service.impl;
 
+import com.jay.mm.module.dao.RoleMapper;
 import com.jay.mm.module.dao.UserMapper;
 import com.jay.mm.module.entity.doo.User;
 import com.jay.mm.module.service.base.UserService;
@@ -20,8 +21,9 @@ public class UserServiceImpl implements UserService {
     private final RoleMapper roleMapper;
 
     @Autowired(required = false)
-    public UserServiceImpl(UserMapper userMapper) {
+    public UserServiceImpl(UserMapper userMapper, RoleMapper roleMapper) {
         this.userMapper = userMapper;
+        this.roleMapper = roleMapper;
     }
 
     @Override

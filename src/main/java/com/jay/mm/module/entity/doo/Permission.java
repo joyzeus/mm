@@ -17,4 +17,6 @@ public class Permission implements Serializable {
     private Integer parentId;
 
     private String path;
+
+    private Integer orderId;
 }

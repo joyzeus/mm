@@ -31,7 +31,7 @@
         </javaClientGenerator>
 
         <!--生成对应表及类名-->
-        <table tableName="user_permission" domainObjectName="UserPermission" enableCountByExample="false"
+        <table tableName="permission" domainObjectName="Permission" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="false"/>

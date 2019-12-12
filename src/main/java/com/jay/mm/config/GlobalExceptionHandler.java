@@ -4,12 +4,10 @@ import com.jay.mm.common.CommonResult;
 import com.jay.mm.module.entity.constant.ErrorLogEnum;
 import com.jay.mm.module.entity.doo.ErrorLog;
 import com.jay.mm.module.service.base.ErrorLogService;
-import org.apache.catalina.util.RequestUtil;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.support.RequestContextUtils;
 
 import javax.servlet.http.HttpServletRequest;
 

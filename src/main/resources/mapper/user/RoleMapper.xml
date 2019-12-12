@@ -17,6 +17,8 @@
     from role
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from role
     where id = #{id,jdbcType=INTEGER}
@@ -90,4 +92,5 @@
       create_id = #{createId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
 </mapper>
